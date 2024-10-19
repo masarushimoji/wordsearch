@@ -1,5 +1,5 @@
 class WordSearch(object):
     def __init__(self, grid):
-        pass
+        self.grid = grid
     def is_present(self, word):
         return True
