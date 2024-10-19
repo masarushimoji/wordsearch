@@ -8,29 +8,22 @@ class WordSearch(object):
         self.columns = len(self.fileContents[0])
         self.rows = len(self.fileContents)
 
-
     def is_present(self, word):
-        wordLen = len(word)
-        #print(self.columns)
-        #print(self.rows)
-        #print(self.fileContents)
+        # for loop that loops through the rows and tries to see if the word is
+        # in the grid horizonatally.
         for line in self.fileContents:
             if word in line:
-                return True
+                return True # return true in the case that the word has been found
         
         for x in range(self.columns):
-            s = ""
+            s = "" # declare an empty string variable s
             for y in range(self.rows):
-                s = s + (self.fileContents[y])[x]
-            print(s)
+                s = s + (self.fileContents[y])[x] #loops through the "y"th column and concatenates the letters in each column into variable s
             if word in s:
-                return True
+                return True # return true in the case tht the word has been found
+        return False #word has not been found in a row or column so return false
 
 
-
-        return False
-
-  
 
 ws = WordSearch("/home/maru/Projects/pexipStuff/testFiles/grid.txt")
 words_to_find = ["hi", "bonkers", "hello"]
