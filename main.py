@@ -15,7 +15,9 @@ class WordSearch(object):
         #print(self.columns)
         #print(self.rows)
         #print(self.fileContents)
-
+        for line in self.fileContents:
+            if word in line:
+                return True
         
             
         return False
