@@ -25,7 +25,7 @@ class WordSearch(object):
 
 
 
-ws = WordSearch("/home/maru/Projects/pexipStuff/testFiles/grid.txt")
+ws = WordSearch("/usr/share/dict/words")
 words_to_find = ["hi", "bonkers", "hello"]
 for word in words_to_find:
     if ws.is_present(word):
