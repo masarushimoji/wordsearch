@@ -1,12 +1,13 @@
 class WordSearch(object):
     def __init__(self, grid):
         self.grid = grid
-        self.fileContents = []
-        with open(self.grid, 'r') as file:
-            for line in file: self.fileContents.append(line)
-        self.fileContents = [s[:-1] for s in self.fileContents] 
-        self.columns = len(self.fileContents[0])
-        self.rows = len(self.fileContents)
+        self.ROW_LENGTH = 3
+        self.gridArr = []
+        
+        for i in range(0, len(self.grid), self.ROW_LENGTH):
+            self.gridArr.append(self.grid[i:i+3])
+        print(self.gridArr)
+        
 
     def is_present(self, word):
         # for loop that loops through the rows and tries to see if the word is
@@ -24,9 +25,15 @@ class WordSearch(object):
         return False #word has not been found in a row or column so return false
 
 
-
-ws = WordSearch("/usr/share/dict/words")
+#dir ="/usr/share/dict/words"
+dir = "test.txt"
+fileContents = ""
+with open(dir, 'r') as file:
+    fileContents = file.readline().strip() 
+    
+ws = WordSearch(fileContents)
 words_to_find = ["hi", "bonkers", "hello"]
+
 for word in words_to_find:
     if ws.is_present(word):
         print("found {}".format(word))
