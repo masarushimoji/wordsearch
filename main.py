@@ -1,27 +1,28 @@
 class WordSearch(object):
     def __init__(self, grid):
         self.grid = grid
-        self.ROW_LENGTH = 3
+        self.ROW_LENGTH = 100
         self.rows = []
         self.columns = ['' for _ in range(self.ROW_LENGTH)]
         
         for i in range(0, len(self.grid), self.ROW_LENGTH):
-            self.rows.append(self.grid[i:i+3])
+            self.rows.append(self.grid[i:i+self.ROW_LENGTH])
         
         for x in range(self.ROW_LENGTH):
             for y in range(self.ROW_LENGTH):
                 self.columns[x] += self.rows[y][x]
 
+
     def is_present(self, word):
         for line in self.rows:
             if word in line:
-                return True # return true in the case that the word has been found
+                return True
         
         for line in self.columns:
             if word in line:
                 return True
         
-        return False #word has not been found in a row or column so return false
+        return False 
 
 
 #dir ="/usr/share/dict/words"
