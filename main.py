@@ -28,8 +28,8 @@ class WordSearch(object):
 dir = "test.txt"
 fileContents = ""
 with open(dir, 'r') as file:
-    fileContents = file.readline().strip() 
-    
+    fileContents = file.readline().strip().lower()
+
 ws = WordSearch(fileContents)
 words_to_find = ["hi", "abc", "aa"]
 
