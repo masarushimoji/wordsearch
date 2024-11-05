@@ -1,7 +1,7 @@
 class WordSearch(object):
     def __init__(self, grid):
         self.grid = grid
-        self.ROW_LENGTH = 100
+        self.ROW_LENGTH = 3
         self.rows = []
         self.columns = ['' for _ in range(self.ROW_LENGTH)]
         self.wordsFound = set()
@@ -28,17 +28,16 @@ class WordSearch(object):
         return False 
 
 
-#dir ="/usr/share/dict/words"
-dir = "test.txt"
+dir ="/usr/share/dict/words"
 fileContents = ""
 with open(dir, 'r') as file:
     fileContents = file.readline().strip().lower()
 
 ws = WordSearch(fileContents)
-words_to_find = ["hi", "abc", "aa", "computational"]
+words_to_find = []
 
 for word in words_to_find:
     if ws.is_present(word):
         print("Found {}".format(word))
-    else:
-        print("HAVEN't found {}".format(word))
+    #else:
+        #print("HAVEN't found {}".format(word))
